@@ -191,7 +191,19 @@ const catArtSortByPriceA = (array) => {
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = () => {};
+const mySortFunction = (data) => {
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+    for (let i = 0; i < data.length - 1; i++) {
+      if (data[i] > data[i + 1]) {
+        [data[i], data[i + 1]] = [data[i + 1], data[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return data;
+};
 
 module.exports = {
   sortNumsA,
